@@ -65,6 +65,8 @@ Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage
 
 ## Traffic analytics
 
+
+
 Since traffic analytics is enabled as part of the flow log resource, the following permissions are required in addition to all the required permissions for [Flow logs](#flow-logs):
 
 > [!div class="mx-tableFixed"]
@@ -91,6 +93,18 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > | Microsoft.Insights/dataCollectionEndpoints/delete <sup>1</sup> | Delete a data collection endpoint |
 
 <sup>1</sup> Only required when using traffic analytics to analyze virtual network flow logs. For more information, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](/azure/azure-monitor/essentials/data-collection-endpoint-overview?toc=/azure/network-watcher/toc.json).
+
+***Scope Requirement Not Documented Clearly:
+
+The documentation does not specify that the following permissions must be granted explicitly at the subscription level for Traffic Analytics:
+Microsoft.Insights/dataCollectionRules/read
+Microsoft.Insights/dataCollectionRules/write
+Microsoft.Insights/dataCollectionRules/delete
+Microsoft.Insights/dataCollectionEndpoints/read
+Microsoft.Insights/dataCollectionEndpoints/write
+Microsoft.Insights/dataCollectionEndpoints/delete
+Assigning these permissions at the resource, resource group, or management group level was insufficient, even when using built-in roles like Owner, Contributor, and Monitoring Contributor, or custom roles that included the required actions. **
+
 
 [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
